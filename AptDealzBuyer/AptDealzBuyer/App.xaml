@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="AptDealzBuyer.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ext="clr-namespace:AptDealzBuyer.Extention">
+    <Application.Resources>
+
+        <!--#region [ BaseURL / HardCodes ]-->
+        <x:String x:Key="GreenColorCode">006027</x:String>
+        <x:String x:Key="Currency">INR</x:String>
+        <x:String x:Key="CountryCode">+91</x:String>
+        <x:String x:Key="BaseURL">https://aptdealzapidev.azurewebsites.net/</x:String>
+
+        <x:Int32 x:Key="Version">1</x:Int32>
+        <x:Int32 x:Key="PageNumber">1</x:Int32>
+        <x:Int32 x:Key="PageSize">300</x:Int32>
+
+        <x:Int64 x:Key="RevealContact">1</x:Int64>
+        <!--#endregion-->
+
+        <x:Double x:Key="Font15">15</x:Double>
+        <x:Double x:Key="Font14">14</x:Double>
+
+        <!--#region [ Colors ]-->
+        <Color x:Key="ErrorBackground">#ff4d4f</Color>
+        <Color x:Key="SuccessBackground">#52c41a</Color>
+        <Color x:Key="WarningBackground">#1890ff</Color>
+
+        <Color x:Key="appColor1">#006027</Color>
+        <Color x:Key="appColor2">#E50019</Color>
+        <Color x:Key="appColor3">#90ff0000</Color>
+        <Color x:Key="appColor4">#1A1818</Color>
+        <Color x:Key="appColor5">#FC9200</Color>
+        <Color x:Key="appColor6">#ffffff</Color>
+        <Color x:Key="appColor7">#bbbbbb</Color>
+        <Color x:Key="appColor8">#F0F0F0</Color>
+        <Color x:Key="appColor9">#8C8B8B</Color>
+        <Color x:Key="appColor10">#60006027</Color>
+        <!--#endregion-->
+
+        <!--#region [ Frames ]-->
+        <Style x:Key="frmEntry" TargetType="Frame">
+            <Setter Property="Padding" Value="15,0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="BorderColor" Value="{StaticResource appColor8}" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="HasShadow" Value="False" />
+            <Setter Property="HeightRequest" Value="50" />
+            <Setter Property="IsClippedToBounds" Value="True" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+        </Style>
+
+        <Style x:Key="frmEntryGray" TargetType="Frame">
+            <Setter Property="Padding" Value="15,0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="BackgroundColor" Value="{StaticResource appColor8}" />
+            <Setter Property="BorderColor" Value="{StaticResource appColor8}" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="HasShadow" Value="False" />
+            <Setter Property="HeightRequest" Value="50" />
+            <Setter Property="IsClippedToBounds" Value="True" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+        </Style>
+
+        <Style x:Key="frmGrayBorder" TargetType="Frame">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="BorderColor" Value="{StaticResource appColor8}" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="HasShadow" Value="False" />
+            <Setter Property="HeightRequest" Value="35" />
+            <Setter Property="IsClippedToBounds" Value="True" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+        </Style>
+
+        <Style x:Key="frmBlank" TargetType="Frame">
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="BorderColor" Value="{StaticResource appColor8}" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="HasShadow" Value="False" />
+            <Setter Property="IsClippedToBounds" Value="True" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+        </Style>
+
+        <Style x:Key="frmNotification" TargetType="Frame">
+            <Setter Property="Margin" Value="10,5,0,0" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="BackgroundColor" Value="{StaticResource appColor5}" />
+            <Setter Property="BorderColor" Value="Transparent" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="HasShadow" Value="False" />
+            <Setter Property="IsClippedToBounds" Value="True" />
+            <Setter Property="VerticalOptions" Value="StartAndExpand" />
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            <Setter Property="HeightRequest" Value="20" />
+            <Setter Property="WidthRequest" Value="20" />
+        </Style>
+        <!--#endregion-->
+
+        <!--#region [ Extentions ]-->
+        <Style x:Key="entrPrimary" TargetType="ext:ExtEntry">
+            <Setter Property="TextColor" Value="{StaticResource appColor4}" />
+            <Setter Property="PlaceholderColor" Value="{StaticResource appColor9}" />
+            <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontFamily" Value="Poppins" />
+        </Style>
+
+        <Style x:Key="entrGray" TargetType="ext:ExtEntry">
+            <Setter Property="TextColor" Value="{StaticResource appColor4}" />
+            <Setter Property="PlaceholderColor" Value="{StaticResource appColor7}" />
+            <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontFamily" Value="Poppins" />
+        </Style>
+
+        <Style x:Key="pkPrimary" TargetType="Picker">
+            <Setter Property="TextColor" Value="{StaticResource appColor4}" />
+            <Setter Property="TitleColor" Value="{StaticResource appColor9}" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontFamily" Value="Poppins" />
+        </Style>
+
+        <Style x:Key="edPrimary" TargetType="Editor">
+            <Setter Property="TextColor" Value="{StaticResource appColor4}" />
+            <Setter Property="PlaceholderColor" Value="{StaticResource appColor7}" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontFamily" Value="Poppins" />
+        </Style>
+        <!--#endregion-->
+
+        <!--#region [ Labels ]-->
+        <Style x:Key="lblPrimary13" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource appColor7}" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontFamily" Value="Poppins" />
+        </Style>
+
+        <Style x:Key="lblHeader" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource appColor4}" />
+            <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontFamily" Value="Poppins-SemiBold" />
+        </Style>
+
+        <Style x:Key="lblBoldHeader" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource appColor4}" />
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="FontFamily" Value="Poppins-SemiBold" />
+        </Style>
+
+        <Style x:Key="lblLight" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource appColor4}" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="FontFamily" Value="Poppins" />
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+
+        <Style x:Key="lblMedium" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource appColor4}" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="FontFamily" Value="Poppins-Medium" />
+        </Style>
+
+        <Style x:Key="lblSemiBold" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource appColor4}" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="FontFamily" Value="Poppins-SemiBold" />
+        </Style>
+
+        <Style x:Key="lblNotification" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource appColor4}" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="FontFamily" Value="Poppins-Medium" />
+        </Style>
+        <!--#endregion-->
+
+        <!--#region [ Views ]-->
+        <Style x:Key="scrPrimary" TargetType="ScrollView">
+            <Setter Property="HorizontalScrollBarVisibility" Value="Never" />
+            <Setter Property="VerticalScrollBarVisibility" Value="Never" />
+        </Style>
+        <Style x:Key="lstPrimary" TargetType="ListView">
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="HasUnevenRows" Value="True" />
+            <Setter Property="HorizontalScrollBarVisibility" Value="Never" />
+            <Setter Property="VerticalScrollBarVisibility" Value="Never" />
+            <Setter Property="VerticalOptions" Value="StartAndExpand" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="SeparatorVisibility" Value="None" />
+        </Style>
+
+        <Style x:Key="boxHorizontal" TargetType="BoxView">
+            <Setter Property="BackgroundColor" Value="{StaticResource appColor8}" />
+            <Setter Property="HeightRequest" Value="1" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="VerticalOptions" Value="EndAndExpand" />
+        </Style>
+
+        <Style x:Key="boxHorizontalGreen" TargetType="BoxView">
+            <Setter Property="BackgroundColor" Value="{StaticResource appColor1}" />
+            <Setter Property="HeightRequest" Value="1" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="VerticalOptions" Value="EndAndExpand" />
+        </Style>
+        <!--#endregion-->
+
+        <!--#region [ Buttons ]-->
+        <Style x:Key="btnPrimary" TargetType="Button">
+            <Setter Property="HeightRequest" Value="50" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="BackgroundColor" Value="{StaticResource appColor1}" />
+            <Setter Property="FontSize" Value="17" />
+            <Setter Property="FontFamily" Value="Poppins-Medium" />
+            <Setter Property="TextColor" Value="{StaticResource appColor6}" />
+        </Style>
+
+        <Style x:Key="btnBorder" TargetType="Button">
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="BorderColor" Value="{StaticResource appColor1}" />
+            <Setter Property="BorderWidth" Value="1" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="FontSize" Value="17" />
+            <Setter Property="FontFamily" Value="Poppins-Medium" />
+            <Setter Property="TextColor" Value="{StaticResource appColor1}" />
+        </Style>
+
+        <Style x:Key="btnSmall" TargetType="Button">
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="BackgroundColor" Value="{StaticResource appColor1}" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontFamily" Value="Poppins-Medium" />
+            <Setter Property="TextColor" Value="{StaticResource appColor6}" />
+        </Style>
+        <!--#endregion-->
+
+        <!--#region [ ImageButtons ]-->
+        <Style x:Key="ImgBtnPrimary" TargetType="ImageButton">
+            <Setter Property="HeightRequest" Value="45" />
+            <Setter Property="WidthRequest" Value="45" />
+            <Setter Property="Aspect" Value="AspectFit" />
+            <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+        </Style>
+
+        <Style x:Key="ImgBtnH40P13" TargetType="ImageButton">
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="WidthRequest" Value="40" />
+            <Setter Property="Aspect" Value="AspectFit" />
+            <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="Padding" Value="13" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+        </Style>
+
+        <Style x:Key="imgLogo" TargetType="ImageButton">
+            <Setter Property="HeightRequest" Value="47" />
+            <Setter Property="WidthRequest" Value="47" />
+            <Setter Property="Aspect" Value="AspectFit" />
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="Source" Value="iconHeaderLogo.png" />
+        </Style>
+        <!--#endregion-->
+
+        <!--#region [ Images ]-->
+        <Style x:Key="imgSearch" TargetType="Image">
+            <Setter Property="HeightRequest" Value="{OnPlatform Android=20, iOS=25}" />
+            <Setter Property="WidthRequest" Value="{OnPlatform Android=20, iOS=25}" />
+            <Setter Property="Aspect" Value="AspectFit" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+        </Style>
+
+        <Style x:Key="imgSorting" TargetType="Image">
+            <Setter Property="HeightRequest" Value="20" />
+            <Setter Property="WidthRequest" Value="20" />
+            <Setter Property="Aspect" Value="AspectFit" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+        </Style>
+
+        <Style x:Key="imgNotification" TargetType="Image">
+            <Setter Property="HeightRequest" Value="30" />
+            <Setter Property="WidthRequest" Value="30" />
+            <Setter Property="Aspect" Value="AspectFit" />
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+        </Style>
+        <!--#endregion-->
+    </Application.Resources>
+</Application>

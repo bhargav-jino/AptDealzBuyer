@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AptDealzBuyer.Views.DashboardPages.NotificationPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:AptDealzBuyer.Converter"
+    xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    iOS:Page.UseSafeArea="True"
+    BackgroundColor="{StaticResource appColor6}"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="120" />
+                </Grid.ColumnDefinitions>
+
+
+                <ImageButton
+                    x:Name="BtnLogo"
+                    Grid.Column="1"
+                    Clicked="BtnLogo_Clicked"
+                    Style="{StaticResource imgLogo}" />
+
+                <Grid
+                    Grid.Column="2"
+                    Margin="0,0,10,0"
+                    ColumnDefinitions="*,*,*"
+                    HorizontalOptions="EndAndExpand">
+                    <Image
+                        Grid.Column="1"
+                        Margin="0"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="iconQuestion.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgQuestion_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image
+                        x:Name="ImgMenu"
+                        Grid.Column="2"
+                        Margin="0,0,0,0"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="iconGear.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgMenu_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <BoxView Grid.ColumnSpan="3" Style="{StaticResource boxHorizontal}" />
+            </Grid>
+
+
+            <Grid Grid.Row="1" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid
+                    Grid.Row="0"
+                    Margin="5,5,5,0"
+                    ColumnDefinitions="Auto,*"
+                    ColumnSpacing="0">
+                    <ImageButton
+                        x:Name="ImgBack"
+                        Grid.Column="0"
+                        Clicked="ImgBack_Tapped"
+                        Source="iconBackArrow.png"
+                        Style="{StaticResource ImgBtnPrimary}" />
+                    <Label
+                        Grid.Column="1"
+                        Style="{StaticResource lblHeader}"
+                        Text="Notifications" />
+                </Grid>
+
+                <ListView
+                    x:Name="lstNotification"
+                    Grid.Row="1"
+                    IsPullToRefreshEnabled="True"
+                    ItemTapped="lstNotification_ItemTapped"
+                    Refreshing="lstNotification_Refreshing"
+                    Style="{StaticResource lstPrimary}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid
+                                        Margin="20,15"
+                                        ColumnDefinitions="*,Auto"
+                                        ColumnSpacing="10">
+
+                                        <StackLayout
+                                            Grid.Column="0"
+                                            HorizontalOptions="StartAndExpand"
+                                            Orientation="Horizontal">
+                                            <BoxView
+                                                BackgroundColor="{Binding IsRead, Converter={converter:BooleanToNotificationReadColor}}"
+                                                HorizontalOptions="EndAndExpand"
+                                                VerticalOptions="FillAndExpand"
+                                                WidthRequest="2" />
+
+                                            <Label
+                                                HorizontalOptions="StartAndExpand"
+                                                LineBreakMode="WordWrap"
+                                                Style="{StaticResource lblLight}"
+                                                Text="{Binding Message}" />
+                                        </StackLayout>
+
+                                        <ImageButton
+                                            Grid.Column="1"
+                                            Clicked="ImgClose_Tapped"
+                                            Source="iconClose.png"
+                                            Style="{StaticResource ImgBtnH40P13}" />
+                                    </Grid>
+                                    <BoxView Style="{StaticResource boxHorizontal}" />
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="GrdList_Tapped" />
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Label
+                    x:Name="lblNoRecord"
+                    Grid.Row="1"
+                    FontSize="{StaticResource Font15}"
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="false"
+                    Style="{StaticResource lblMedium}"
+                    Text="No notifications found" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

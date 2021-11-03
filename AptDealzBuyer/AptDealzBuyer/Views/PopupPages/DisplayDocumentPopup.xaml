@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage
+    x:Class="AptDealzBuyer.Views.PopupPages.DisplayDocumentPopup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    NavigationPage.HasNavigationBar="False">
+    <Frame
+        Margin="30"
+        Padding="0"
+        BackgroundColor="{StaticResource appColor6}"
+        CornerRadius="10"
+        HasShadow="False"
+        HorizontalOptions="FillAndExpand"
+        IsClippedToBounds="True"
+        VerticalOptions="FillAndExpand">
+        <Grid RowDefinitions="Auto,*" RowSpacing="0">
+            <ImageButton
+                x:Name="ImgClose"
+                Grid.Row="0"
+                Padding="20"
+                BackgroundColor="Transparent"
+                Clicked="ImgClose_Clicked"
+                HeightRequest="60"
+                HorizontalOptions="End"
+                Source="iconClose.png"
+                VerticalOptions="Start"
+                WidthRequest="60" />
+            <!--<Image
+                x:Name="ImgProduct"
+                Grid.Row="1"
+                Margin="20,0,20,20"
+                Aspect="AspectFit"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="false"
+                VerticalOptions="FillAndExpand" />-->
+            <WebView
+                x:Name="WbView"
+                Grid.Row="1"
+                Margin="20,0,20,20"
+                VerticalOptions="FillAndExpand" />
+        </Grid>
+    </Frame>
+</popup:PopupPage>

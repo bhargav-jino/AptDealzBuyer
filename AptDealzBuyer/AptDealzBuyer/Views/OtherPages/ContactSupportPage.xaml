@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AptDealzBuyer.Views.OtherPages.ContactSupportPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:AptDealzBuyer.Converter"
+    xmlns:ext="clr-namespace:AptDealzBuyer.Extention"
+    xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:pan="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    iOS:Page.UseSafeArea="True"
+    BackgroundColor="{StaticResource appColor6}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="120" />
+                </Grid.ColumnDefinitions>
+
+                <ImageButton
+                    x:Name="BtnLogo"
+                    Grid.Column="1"
+                    Clicked="BtnLogo_Clicked"
+                    Style="{StaticResource imgLogo}" />
+
+                <Grid
+                    Grid.Column="2"
+                    Margin="0,0,10,0"
+                    ColumnDefinitions="*,*,*"
+                    HorizontalOptions="EndAndExpand">
+                    <Grid>
+                        <Image Source="iconNotification.png" Style="{StaticResource imgNotification}" />
+                        <Frame
+                            x:Name="frmNotification"
+                            IsVisible="false"
+                            Style="{StaticResource frmNotification}">
+                            <Label x:Name="lblNotificationCount" Style="{StaticResource lblNotification}" />
+                        </Frame>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgNotification_Tapped" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <Image
+                        Grid.Column="1"
+                        Margin="0"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="iconQuestion.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgQuestion_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image
+                        x:Name="ImgMenu"
+                        Grid.Column="2"
+                        Margin="0,0,0,0"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="iconGear.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgMenu_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                </Grid>
+                <BoxView Grid.ColumnSpan="3" Style="{StaticResource boxHorizontal}" />
+            </Grid>
+
+            <Grid Grid.Row="1" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid
+                    Grid.Row="0"
+                    Margin="5,5,5,0"
+                    ColumnDefinitions="Auto,*"
+                    ColumnSpacing="0">
+                    <ImageButton
+                        x:Name="ImgBack"
+                        Grid.Column="0"
+                        Clicked="ImgBack_Tapped"
+                        Source="iconBackArrow.png"
+                        Style="{StaticResource ImgBtnPrimary}" />
+                    <Label
+                        Grid.Column="1"
+                        Style="{StaticResource lblHeader}"
+                        Text="Contact Support" />
+                </Grid>
+
+                <ext:ExtKeyboard
+                    x:Name="GrdMain"
+                    Grid.Row="1"
+                    RowSpacing="0">
+                    <ext:ExtKeyboard.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </ext:ExtKeyboard.RowDefinitions>
+
+                    <ListView
+                        x:Name="lstChar"
+                        Grid.Row="0"
+                        Margin="20,0"
+                        IsPullToRefreshEnabled="True"
+                        ItemTapped="lstChar_ItemTapped"
+                        Refreshing="lstChar_Refreshing"
+                        Style="{StaticResource lstPrimary}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <pan:PancakeView
+                                        Margin="{Binding IsUser, Converter={converter:BooleanToMessageMargin}}"
+                                        Padding="10"
+                                        BackgroundColor="{StaticResource appColor8}"
+                                        CornerRadius="{Binding IsUser, Converter={converter:BooleanToPancakeRadius}}"
+                                        HorizontalOptions="{Binding IsUser, Converter={converter:BooleanToMessagePosition}}"
+                                        IsClippedToBounds="True"
+                                        VerticalOptions="CenterAndExpand">
+
+                                        <Grid Margin="0" ColumnDefinitions="Auto,*,Auto">
+
+                                            <Image
+                                                Grid.Column="0"
+                                                Margin="0"
+                                                Aspect="AspectFill"
+                                                HeightRequest="50"
+                                                HorizontalOptions="EndAndExpand"
+                                                IsVisible="{Binding IsContact}"
+                                                Source="{Binding ChatMessageFromUserProfileImage, Mode=OneTime}"
+                                                VerticalOptions="StartAndExpand"
+                                                WidthRequest="50">
+                                                <Image.Clip>
+                                                    <EllipseGeometry
+                                                        Center="25,25"
+                                                        RadiusX="25"
+                                                        RadiusY="25" />
+                                                </Image.Clip>
+                                            </Image>
+
+                                            <Grid
+                                                Grid.Column="1"
+                                                RowSpacing="0"
+                                                VerticalOptions="FillAndExpand">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Label
+                                                    Grid.Row="0"
+                                                    FontSize="13"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    LineBreakMode="WordWrap"
+                                                    Style="{StaticResource lblLight}"
+                                                    Text="{Binding Message}"
+                                                    VerticalOptions="StartAndExpand" />
+                                                <StackLayout
+                                                    Grid.Row="1"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    Orientation="Horizontal"
+                                                    Spacing="20"
+                                                    VerticalOptions="EndAndExpand">
+                                                    <Label
+                                                        FontSize="11"
+                                                        HorizontalOptions="StartAndExpand"
+                                                        Style="{StaticResource lblMedium}"
+                                                        Text="{Binding ChatMessageFromUserName}"
+                                                        VerticalOptions="EndAndExpand" />
+                                                    <Label
+                                                        FontSize="9"
+                                                        HorizontalOptions="EndAndExpand"
+                                                        Style="{StaticResource lblSemiBold}"
+                                                        Text="{Binding CreatedDateStr}"
+                                                        TextColor="{StaticResource appColor9}"
+                                                        VerticalOptions="EndAndExpand" />
+                                                </StackLayout>
+                                            </Grid>
+
+                                            <Image
+                                                Grid.Column="2"
+                                                Margin="0"
+                                                Aspect="AspectFill"
+                                                HeightRequest="50"
+                                                HorizontalOptions="EndAndExpand"
+                                                IsVisible="{Binding IsUser}"
+                                                Source="{Binding ChatMessageFromUserProfileImage}"
+                                                VerticalOptions="StartAndExpand"
+                                                WidthRequest="50">
+                                                <Image.Clip>
+                                                    <EllipseGeometry
+                                                        Center="25,25"
+                                                        RadiusX="25"
+                                                        RadiusY="25" />
+                                                </Image.Clip>
+                                            </Image>
+                                        </Grid>
+                                    </pan:PancakeView>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <Label
+                        x:Name="lblNoRecord"
+                        Grid.Row="0"
+                        FontSize="{StaticResource Font15}"
+                        HorizontalOptions="CenterAndExpand"
+                        IsVisible="false"
+                        Style="{StaticResource lblMedium}"
+                        Text="No message found" />
+
+                    <StackLayout
+                        Grid.Row="1"
+                        Padding="20,10,20,20"
+                        VerticalOptions="EndAndExpand">
+                        <Grid
+                            ColumnDefinitions="*,Auto"
+                            ColumnSpacing="10"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="EndAndExpand">
+
+                            <Frame
+                                Grid.Column="0"
+                                Margin="0"
+                                Padding="15,0"
+                                BackgroundColor="Transparent"
+                                BorderColor="{StaticResource appColor8}"
+                                CornerRadius="5"
+                                HasShadow="False"
+                                IsClippedToBounds="True">
+                                <Editor
+                                    x:Name="txtMessage"
+                                    Margin="{OnPlatform Android='0,10,0,0',
+                                                        iOS=0}"
+                                    AutoSize="TextChanges"
+                                    Keyboard="Text"
+                                    Placeholder="Enter your message "
+                                    Style="{StaticResource edPrimary}" />
+                            </Frame>
+                            <ImageButton
+                                x:Name="BtnSend"
+                                Grid.Column="1"
+                                BackgroundColor="Transparent"
+                                Clicked="BtnSend_Clicked"
+                                Source="iconSend.png"
+                                Style="{StaticResource imgLogo}"
+                                VerticalOptions="EndAndExpand" />
+                        </Grid>
+                    </StackLayout>
+                </ext:ExtKeyboard>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

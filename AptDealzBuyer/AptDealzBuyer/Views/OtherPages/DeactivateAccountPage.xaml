@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AptDealzBuyer.Views.OtherPages.DeactivateAccountPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    iOS:Page.UseSafeArea="True"
+    BackgroundColor="{StaticResource appColor6}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="120" />
+                </Grid.ColumnDefinitions>
+
+                <ImageButton
+                    x:Name="BtnLogo"
+                    Grid.Column="1"
+                    Clicked="BtnLogo_Clicked"
+                    Style="{StaticResource imgLogo}" />
+
+                <Grid
+                    Grid.Column="2"
+                    Margin="0,0,10,0"
+                    ColumnDefinitions="*,*"
+                    HorizontalOptions="EndAndExpand">
+                    <Grid>
+                        <Image Source="iconNotification.png" Style="{StaticResource imgNotification}" />
+                        <Frame
+                            x:Name="frmNotification"
+                            IsVisible="false"
+                            Style="{StaticResource frmNotification}">
+                            <Label x:Name="lblNotificationCount" Style="{StaticResource lblNotification}" />
+                        </Frame>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgNotification_Tapped" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <Image
+                        Grid.Column="1"
+                        Margin="0"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="iconQuestion.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgQuestion_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image
+                        x:Name="ImgMenu"
+                        Grid.Column="2"
+                        Margin="0,0,0,0"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="iconGear.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgMenu_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                </Grid>
+                <BoxView Grid.ColumnSpan="3" Style="{StaticResource boxHorizontal}" />
+            </Grid>
+
+
+            <Grid Grid.Row="1" Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid
+                    Grid.Row="0"
+                    Margin="5,5,5,0"
+                    ColumnDefinitions="Auto,*"
+                    ColumnSpacing="0">
+                    <ImageButton
+                        x:Name="ImgBack"
+                        Grid.Column="0"
+                        Clicked="ImgBack_Tapped"
+                        Source="iconBackArrow.png"
+                        Style="{StaticResource ImgBtnPrimary}" />
+                    <Label
+                        Grid.Column="1"
+                        Style="{StaticResource lblHeader}"
+                        Text="Deactivate Account" />
+                </Grid>
+
+                <ContentView Grid.Row="1" IsClippedToBounds="True">
+                    <ScrollView Style="{StaticResource scrPrimary}">
+
+                        <Grid
+                            Padding="20,0,20,20"
+                            RowDefinitions="Auto,Auto,*"
+                            RowSpacing="15">
+
+                            <Label
+                                Grid.Row="0"
+                                HorizontalOptions="FillAndExpand"
+                                LineBreakMode="WordWrap"
+                                Style="{StaticResource lblLight}"
+                                Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                                VerticalOptions="FillAndExpand" />
+
+                            <StackLayout Grid.Row="1">
+                                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                    <Label Style="{StaticResource lblPrimary13}" Text="Reason for Deactivation:" />
+                                    <Label Text="*" TextColor="{StaticResource appColor2}" />
+                                </StackLayout>
+
+                                <Editor
+                                    x:Name="txtReason"
+                                    AutoSize="TextChanges"
+                                    Style="{StaticResource edPrimary}" />
+                                <BoxView x:Name="BoxReason" Style="{StaticResource boxHorizontal}" />
+                            </StackLayout>
+
+                            <Button
+                                x:Name="BtnDeactivation"
+                                Grid.Row="2"
+                                Clicked="BtnDeactivation_Clicked"
+                                Style="{StaticResource btnPrimary}"
+                                Text="Confirm Account Deactivation"
+                                VerticalOptions="EndAndExpand" />
+
+                        </Grid>
+
+                    </ScrollView>
+                </ContentView>
+
+            </Grid>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="AptDealzBuyer.Views.MainTabbedPages.AboutView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="{StaticResource appColor6}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentView.Content>
+
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="120" />
+                </Grid.ColumnDefinitions>
+
+                <ImageButton
+                    x:Name="BtnLogo"
+                    Grid.Column="1"
+                    Clicked="BtnLogo_Clicked"
+                    Style="{StaticResource imgLogo}" />
+
+                <Grid
+                    Grid.Column="2"
+                    Margin="0,0,10,0"
+                    ColumnDefinitions="*,*,*"
+                    HorizontalOptions="EndAndExpand">
+                    <Grid>
+                        <Image Source="iconNotification.png" Style="{StaticResource imgNotification}" />
+                        <Frame
+                            x:Name="frmNotification"
+                            IsVisible="false"
+                            Style="{StaticResource frmNotification}">
+                            <Label x:Name="lblNotificationCount" Style="{StaticResource lblNotification}" />
+                        </Frame>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgNotification_Tapped" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <Image
+                        Grid.Column="1"
+                        Margin="0"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="iconQuestion.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgQuestion_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image
+                        x:Name="ImgMenu"
+                        Grid.Column="2"
+                        Margin="0,0,0,0"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="iconGear.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgMenu_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                </Grid>
+                <BoxView Grid.ColumnSpan="3" Style="{StaticResource boxHorizontal}" />
+            </Grid>
+
+
+            <Grid Grid.Row="1" Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid
+                    Grid.Row="0"
+                    Margin="5,5,5,0"
+                    ColumnDefinitions="Auto,*"
+                    ColumnSpacing="0">
+                    <ImageButton
+                        x:Name="ImgBack"
+                        Grid.Column="0"
+                        Clicked="ImgBack_Tapped"
+                        Source="iconBackArrow.png"
+                        Style="{StaticResource ImgBtnPrimary}" />
+                    <Label
+                        Grid.Column="1"
+                        Style="{StaticResource lblHeader}"
+                        Text="About AptDealz" />
+                </Grid>
+
+                <ContentView Grid.Row="1" IsClippedToBounds="True">
+                    <ScrollView Style="{StaticResource scrPrimary}">
+
+                        <Grid
+                            Padding="20,0,20,20"
+                            RowDefinitions="Auto,Auto"
+                            RowSpacing="20">
+                            <Label
+                                x:Name="lblAbout"
+                                Grid.Row="0"
+                                HorizontalOptions="FillAndExpand"
+                                LineBreakMode="WordWrap"
+                                Style="{StaticResource lblLight}"
+                                TextType="Html"
+                                VerticalOptions="StartAndExpand" />
+
+                            <Frame
+                                Grid.Row="1"
+                                Margin="0"
+                                Padding="15"
+                                BackgroundColor="Transparent"
+                                BorderColor="{StaticResource appColor8}"
+                                CornerRadius="5"
+                                HasShadow="False"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="StartAndExpand">
+                                <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="10">
+
+                                    <Label
+                                        Grid.Row="0"
+                                        FontSize="20"
+                                        HorizontalOptions="StartAndExpand"
+                                        Style="{StaticResource lblMedium}"
+                                        Text="Contact Info" />
+
+                                    <StackLayout Grid.Row="1" Spacing="0">
+                                        <Label
+                                            x:Name="lblAddress1"
+                                            HorizontalOptions="StartAndExpand"
+                                            Style="{StaticResource lblLight}" />
+
+                                        <Label
+                                            x:Name="lblAddress2"
+                                            Grid.Row="1"
+                                            HorizontalOptions="StartAndExpand"
+                                            Style="{StaticResource lblLight}" />
+
+                                        <Label
+                                            x:Name="lblPincode"
+                                            Grid.Row="1"
+                                            HorizontalOptions="StartAndExpand"
+                                            Style="{StaticResource lblLight}" />
+                                    </StackLayout>
+
+                                    <Label
+                                        x:Name="lblEmail"
+                                        Grid.Row="2"
+                                        HorizontalOptions="StartAndExpand"
+                                        Style="{StaticResource lblLight}" />
+
+                                    <Label
+                                        x:Name="lblPhoneNo"
+                                        Grid.Row="3"
+                                        HorizontalOptions="StartAndExpand"
+                                        Style="{StaticResource lblLight}" />
+
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </ScrollView>
+                </ContentView>
+
+            </Grid>
+        </Grid>
+
+    </ContentView.Content>
+</ContentView>

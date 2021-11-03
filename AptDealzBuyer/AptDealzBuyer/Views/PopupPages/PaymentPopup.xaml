@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage
+    x:Class="AptDealzBuyer.Views.PopupPages.PaymentPopup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    NavigationPage.HasNavigationBar="False">
+
+    <Frame
+        Margin="30,0"
+        Padding="0"
+        BackgroundColor="{StaticResource appColor6}"
+        BorderColor="{StaticResource appColor6}"
+        CornerRadius="10"
+        HasShadow="{OnPlatform Android=true,
+                               iOS=false}"
+        HeightRequest="250"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="CenterAndExpand">
+
+        <Grid
+            Margin="0"
+            Padding="20"
+            RowDefinitions="*,*,*">
+
+            <Label
+                Grid.Row="0"
+                FontSize="18"
+                HorizontalOptions="CenterAndExpand"
+                Style="{StaticResource lblMedium}"
+                Text="Alert"
+                TextColor="{StaticResource appColor1}" />
+
+            <Label
+                x:Name="lblMessage"
+                Grid.Row="1"
+                HorizontalOptions="CenterAndExpand"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource lblLight}"
+                Text=""
+                TextColor="{StaticResource appColor1}" />
+
+            <Grid
+                Grid.Row="2"
+                ColumnDefinitions="*,*"
+                ColumnSpacing="15"
+                HeightRequest="50"
+                VerticalOptions="CenterAndExpand">
+                <Button
+                    Grid.Column="0"
+                    Clicked="FrmPay_Tapped"
+                    CornerRadius="25"
+                    Style="{StaticResource btnPrimary}"
+                    Text="Pay" />
+
+                <Button
+                    Grid.Column="1"
+                    Clicked="FrmBack_Tapped"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    Style="{StaticResource btnBorder}"
+                    Text="Back" />
+            </Grid>
+
+        </Grid>
+
+    </Frame>
+
+</popup:PopupPage>

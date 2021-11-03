@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AptDealzBuyer.Views.Login.EnterOtpPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ext="clr-namespace:AptDealzBuyer.Extention"
+    xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    iOS:Page.UseSafeArea="True"
+    BackgroundColor="{StaticResource appColor6}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid
+            HorizontalOptions="FillAndExpand"
+            RowSpacing="0"
+            VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" ColumnDefinitions="60,*,60">
+                <Image
+                    x:Name="ImgBack"
+                    Grid.Column="0"
+                    HeightRequest="25"
+                    HorizontalOptions="CenterAndExpand"
+                    Source="iconBackArrow.png"
+                    VerticalOptions="CenterAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgBack_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+
+            <Grid Grid.Row="1" RowSpacing="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="0" Spacing="5">
+                    <Image
+                        Aspect="AspectFit"
+                        HeightRequest="100"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="iconLogo.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="100" />
+
+                    <Label
+                        FontSize="24"
+                        Style="{StaticResource lblBoldHeader}"
+                        Text="Enter OTP" />
+
+                    <Label
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource lblLight}"
+                        Text="Please enter the 6 digit OTP &#x0a; received on your email or phone number." />
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Row="1"
+                    Margin="20,0"
+                    BackgroundColor="{StaticResource appColor6}"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal"
+                    Spacing="10"
+                    VerticalOptions="CenterAndExpand">
+                    <Frame
+                        Margin="0"
+                        Padding="0"
+                        BackgroundColor="{StaticResource appColor8}"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        HeightRequest="45"
+                        WidthRequest="45">
+                        <ext:ExtEntry
+                            x:Name="TxtOtpOne"
+                            FontFamily="Poppins"
+                            FontSize="{StaticResource Font15}"
+                            HorizontalOptions="FillAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Keyboard="Numeric"
+                            MaxLength="1"
+                            ReturnType="Next"
+                            TextChanged="TxtOtpOne_TextChanged"
+                            TextColor="{StaticResource appColor4}"
+                            VerticalOptions="FillAndExpand"
+                            VerticalTextAlignment="Center" />
+
+                    </Frame>
+
+                    <Frame
+                        Margin="0"
+                        Padding="0"
+                        BackgroundColor="{StaticResource appColor8}"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        HeightRequest="45"
+                        WidthRequest="45">
+                        <ext:ExtEntry
+                            x:Name="TxtOtpTwo"
+                            FontFamily="Poppins"
+                            FontSize="{StaticResource Font15}"
+                            HorizontalOptions="FillAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Keyboard="Numeric"
+                            MaxLength="1"
+                            ReturnType="Next"
+                            TextChanged="TxtOtpTwo_TextChanged"
+                            TextColor="{StaticResource appColor4}"
+                            VerticalOptions="FillAndExpand"
+                            VerticalTextAlignment="Center" />
+
+                    </Frame>
+
+                    <Frame
+                        Margin="0"
+                        Padding="0"
+                        BackgroundColor="{StaticResource appColor8}"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        HeightRequest="45"
+                        WidthRequest="45">
+                        <ext:ExtEntry
+                            x:Name="TxtOtpThree"
+                            FontFamily="Poppins"
+                            FontSize="{StaticResource Font15}"
+                            HorizontalOptions="FillAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Keyboard="Numeric"
+                            MaxLength="1"
+                            ReturnType="Next"
+                            TextChanged="TxtOtpThree_TextChanged"
+                            TextColor="{StaticResource appColor4}"
+                            VerticalOptions="FillAndExpand"
+                            VerticalTextAlignment="Center" />
+
+                    </Frame>
+
+                    <Frame
+                        Margin="0"
+                        Padding="0"
+                        BackgroundColor="{StaticResource appColor8}"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        HeightRequest="45"
+                        WidthRequest="45">
+                        <ext:ExtEntry
+                            x:Name="TxtOtpFour"
+                            FontFamily="Poppins"
+                            FontSize="{StaticResource Font15}"
+                            HorizontalOptions="FillAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Keyboard="Numeric"
+                            MaxLength="1"
+                            ReturnType="Next"
+                            TextChanged="TxtOtpFour_TextChanged"
+                            TextColor="{StaticResource appColor4}"
+                            VerticalOptions="FillAndExpand"
+                            VerticalTextAlignment="Center" />
+
+                    </Frame>
+
+                    <Frame
+                        Margin="0"
+                        Padding="0"
+                        BackgroundColor="{StaticResource appColor8}"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        HeightRequest="45"
+                        WidthRequest="45">
+                        <ext:ExtEntry
+                            x:Name="TxtOtpFive"
+                            FontFamily="Poppins"
+                            FontSize="{StaticResource Font15}"
+                            HorizontalOptions="FillAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Keyboard="Numeric"
+                            MaxLength="1"
+                            ReturnType="Next"
+                            TextChanged="TxtOtpFive_TextChanged"
+                            TextColor="{StaticResource appColor4}"
+                            VerticalOptions="FillAndExpand"
+                            VerticalTextAlignment="Center" />
+
+                    </Frame>
+
+                    <Frame
+                        Margin="0"
+                        Padding="0"
+                        BackgroundColor="{StaticResource appColor8}"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        HeightRequest="45"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        WidthRequest="45">
+                        <ext:ExtEntry
+                            x:Name="TxtOtpSix"
+                            FontFamily="Poppins"
+                            FontSize="{StaticResource Font15}"
+                            HorizontalOptions="FillAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Keyboard="Numeric"
+                            MaxLength="1"
+                            ReturnType="Next"
+                            TextChanged="TxtOtpSix_TextChanged"
+                            TextColor="{StaticResource appColor4}"
+                            VerticalOptions="FillAndExpand"
+                            VerticalTextAlignment="Center" />
+                    </Frame>
+
+                </StackLayout>
+
+                <Button
+                    x:Name="BtnSubmit"
+                    Grid.Row="2"
+                    Margin="20,0"
+                    BackgroundColor="{StaticResource appColor7}"
+                    Clicked="BtnSubmit_Tapped"
+                    Style="{StaticResource btnPrimary}"
+                    Text="Submit" />
+
+                <Button
+                    x:Name="BtnResentOtp"
+                    Grid.Row="3"
+                    BackgroundColor="Transparent"
+                    Clicked="BtnResentOtp_Tapped"
+                    HorizontalOptions="CenterAndExpand"
+                    Style="{StaticResource btnPrimary}"
+                    Text="Resend OTP"
+                    TextColor="{StaticResource appColor4}" />
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

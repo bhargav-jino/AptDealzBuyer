@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AptDealzBuyer.Views.MasterData.MenuPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Menu"
+    Padding="{OnPlatform Android=0,
+                         iOS='0,40,0,0'}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout Padding="20" VerticalOptions="StartAndExpand">
+            <!--<Label
+                x:Name="lblLogout"
+                HorizontalOptions="StartAndExpand"
+                Text="Logout"
+                TextColor="{StaticResource appColor1}"
+                VerticalOptions="CenterAndExpand" />
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Logout_Tapped" />
+            </StackLayout.GestureRecognizers>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

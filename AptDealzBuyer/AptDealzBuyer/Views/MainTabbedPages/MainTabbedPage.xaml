@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AptDealzBuyer.Views.MainTabbedPages.MainTabbedPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    iOS:Page.UseSafeArea="True"
+    BackgroundColor="{StaticResource appColor6}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="70" />
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="grdMain" Grid.Row="0" />
+
+            <BoxView
+                Grid.Row="1"
+                BackgroundColor="{StaticResource appColor8}"
+                HeightRequest="1"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand" />
+
+            <Grid
+                Grid.Row="2"
+                BackgroundColor="{StaticResource appColor6}"
+                ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid
+                    x:Name="stkHome"
+                    Grid.Column="0"
+                    ClassId="Home"
+                    HorizontalOptions="FillAndExpand"
+                    RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        x:Name="imgHome"
+                        Grid.Row="0"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="iconHome.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30" />
+                    <Label
+                        x:Name="lblHome"
+                        Grid.Row="1"
+                        Margin="0,0,0,5"
+                        FontSize="12"
+                        HorizontalOptions="CenterAndExpand"
+                        Style="{StaticResource lblLight}"
+                        Text="Home" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Tab_Tapped" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Grid
+                    x:Name="stkRequirements"
+                    Grid.Column="1"
+                    ClassId="Requirements"
+                    HorizontalOptions="FillAndExpand"
+                    RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        x:Name="imgRequirements"
+                        Grid.Row="0"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="iconRequirements.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30" />
+                    <Label
+                        x:Name="lblRequirements"
+                        Grid.Row="1"
+                        Margin="0,0,0,5"
+                        FontSize="12"
+                        HorizontalOptions="CenterAndExpand"
+                        Style="{StaticResource lblLight}"
+                        Text="Requirements" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Tab_Tapped" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Grid
+                    x:Name="stkOrders"
+                    Grid.Column="2"
+                    ClassId="Order"
+                    HorizontalOptions="FillAndExpand"
+                    RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        x:Name="imgOrders"
+                        Grid.Row="0"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="iconOrders.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30" />
+                    <Label
+                        x:Name="lblOrders"
+                        Grid.Row="1"
+                        Margin="0,0,0,5"
+                        FontSize="12"
+                        HorizontalOptions="CenterAndExpand"
+                        Style="{StaticResource lblLight}"
+                        Text="Orders" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Tab_Tapped" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Grid
+                    x:Name="stkAccount"
+                    Grid.Column="3"
+                    ClassId="Profile"
+                    HorizontalOptions="FillAndExpand"
+                    RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        x:Name="imgAccount"
+                        Grid.Row="0"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="iconAccount.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30" />
+                    <Label
+                        x:Name="lblAccount"
+                        Grid.Row="1"
+                        Margin="0,0,0,5"
+                        FontSize="12"
+                        HorizontalOptions="CenterAndExpand"
+                        Style="{StaticResource lblLight}"
+                        Text="Account" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Tab_Tapped" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

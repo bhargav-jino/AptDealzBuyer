@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage
+    x:Class="AptDealzBuyer.Views.PopupPages.OrderStatusPopup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <Grid
+        BackgroundColor="{StaticResource appColor6}"
+        HorizontalOptions="FillAndExpand"
+        RowDefinitions="Auto,Auto,Auto"
+        RowSpacing="0"
+        VerticalOptions="EndAndExpand">
+
+        <Label
+            x:Name="lblTitle"
+            Grid.Row="0"
+            Margin="20,10"
+            FontSize="17"
+            HorizontalOptions="StartAndExpand"
+            Style="{StaticResource lblLight}"
+            Text="Status By" />
+
+        <BoxView Grid.Row="1" Style="{StaticResource boxHorizontal}" />
+
+        <Grid
+            Grid.Row="2"
+            Margin="20"
+            RowSpacing="{OnPlatform Android=5,
+                                    iOS=7}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackLayout
+                Grid.Row="0"
+                Orientation="Horizontal"
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    x:Name="lblFirstType"
+                    HorizontalOptions="StartAndExpand"
+                    Style="{StaticResource lblLight}" />
+                <Image
+                    x:Name="imgFirstType"
+                    Margin="0"
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    HorizontalOptions="EndAndExpand"
+                    Source="iconRadioUnselect.png"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="20" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="StkFirstType_Tapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout
+                Grid.Row="1"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal"
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    x:Name="lblSecondType"
+                    Grid.Row="0"
+                    HorizontalOptions="StartAndExpand"
+                    Style="{StaticResource lblLight}" />
+                <Image
+                    x:Name="imgSecondType"
+                    Margin="0"
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    HorizontalOptions="EndAndExpand"
+                    Source="iconRadioUnselect.png"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="20" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="StkSecondType_Tapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout
+                x:Name="StkThirdType"
+                Grid.Row="2"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal"
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    x:Name="lblThirdType"
+                    Grid.Row="0"
+                    HorizontalOptions="StartAndExpand"
+                    Style="{StaticResource lblLight}" />
+                <Image
+                    x:Name="imgThirdType"
+                    Margin="0"
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    HorizontalOptions="EndAndExpand"
+                    Source="iconRadioUnselect.png"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="20" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="StkThirdType_Tapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout
+                Grid.Row="3"
+                Orientation="Horizontal"
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    x:Name="lblFourType"
+                    HorizontalOptions="StartAndExpand"
+                    Style="{StaticResource lblLight}" />
+                <Image
+                    x:Name="imgFourType"
+                    Margin="0"
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    HorizontalOptions="EndAndExpand"
+                    Source="iconRadioUnselect.png"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="20" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="StkFourType_Tapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout
+                Grid.Row="4"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal"
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    x:Name="lblFiveType"
+                    Grid.Row="0"
+                    HorizontalOptions="StartAndExpand"
+                    Style="{StaticResource lblLight}" />
+                <Image
+                    x:Name="imgFiveType"
+                    Margin="0"
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    HorizontalOptions="EndAndExpand"
+                    Source="iconRadioUnselect.png"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="20" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="StkFiveType_Tapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout
+                x:Name="StkSixType"
+                Grid.Row="5"
+                Orientation="Horizontal"
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    x:Name="lblSixType"
+                    Grid.Row="0"
+                    HorizontalOptions="StartAndExpand"
+                    Style="{StaticResource lblLight}" />
+                <Image
+                    x:Name="imgSixType"
+                    Margin="0"
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    HorizontalOptions="EndAndExpand"
+                    Source="iconRadioUnselect.png"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="20" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="StkSixType_Tapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout
+                Grid.Row="6"
+                Orientation="Horizontal"
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    x:Name="lblSevenType"
+                    Grid.Row="0"
+                    HorizontalOptions="StartAndExpand"
+                    Style="{StaticResource lblLight}" />
+                <Image
+                    x:Name="imgSevenType"
+                    Margin="0"
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    HorizontalOptions="EndAndExpand"
+                    Source="iconRadioUnselect.png"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="20" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="StkSevenType_Tapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout
+                x:Name="StkEightType"
+                Grid.Row="7"
+                Margin="0"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal"
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    x:Name="lblEightType"
+                    Grid.Row="0"
+                    HorizontalOptions="StartAndExpand"
+                    Style="{StaticResource lblLight}" />
+                <Image
+                    x:Name="imgEightType"
+                    Margin="0"
+                    Aspect="Fill"
+                    HeightRequest="20"
+                    HorizontalOptions="EndAndExpand"
+                    Source="iconRadioUnselect.png"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="20" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="StkEightType_Tapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</popup:PopupPage>

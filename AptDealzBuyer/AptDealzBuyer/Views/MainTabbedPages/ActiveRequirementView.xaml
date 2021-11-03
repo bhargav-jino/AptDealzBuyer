@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="AptDealzBuyer.Views.MainTabbedPages.ActiveRequirementView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:AptDealzBuyer.Converter"
+    xmlns:ext="clr-namespace:AptDealzBuyer.Extention"
+    BackgroundColor="{StaticResource appColor6}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentView.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="120" />
+                </Grid.ColumnDefinitions>
+
+
+                <ImageButton
+                    x:Name="BtnLogo"
+                    Grid.Column="1"
+                    Clicked="BtnLogo_Clicked"
+                    Style="{StaticResource imgLogo}" />
+
+                <Grid
+                    Grid.Column="2"
+                    Margin="0,0,10,0"
+                    ColumnDefinitions="*,*,*"
+                    HorizontalOptions="EndAndExpand">
+                    <Grid>
+                        <Image Source="iconNotification.png" Style="{StaticResource imgNotification}" />
+                        <Frame
+                            x:Name="frmNotification"
+                            IsVisible="false"
+                            Style="{StaticResource frmNotification}">
+                            <Label x:Name="lblNotificationCount" Style="{StaticResource lblNotification}" />
+                        </Frame>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgNotification_Tapped" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <Image
+                        Grid.Column="1"
+                        Margin="0"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="iconQuestion.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgQuestion_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image
+                        x:Name="ImgMenu"
+                        Grid.Column="2"
+                        Margin="0,0,0,0"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="iconGear.png"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgMenu_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <BoxView Grid.ColumnSpan="3" Style="{StaticResource boxHorizontal}" />
+            </Grid>
+
+            <Grid
+                Grid.Row="1"
+                Margin="0"
+                RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid
+                    Grid.Row="0"
+                    Margin="5,5,5,0"
+                    ColumnDefinitions="Auto,*"
+                    ColumnSpacing="0">
+                    <ImageButton
+                        x:Name="ImgBack"
+                        Grid.Column="0"
+                        Clicked="ImgBack_Tapped"
+                        Source="iconBackArrow.png"
+                        Style="{StaticResource ImgBtnPrimary}" />
+                    <Label
+                        Grid.Column="1"
+                        Style="{StaticResource lblHeader}"
+                        Text="Active Requirements" />
+                </Grid>
+
+                <Grid
+                    Grid.Row="1"
+                    Padding="15,0"
+                    RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Frame
+                        x:Name="FrmSearchBy"
+                        Grid.Row="0"
+                        BorderColor="Transparent"
+                        Style="{StaticResource frmBlank}">
+
+                        <Grid BackgroundColor="Transparent">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Grid.Column="0"
+                                Source="iconSearch.png"
+                                Style="{StaticResource imgSearch}" />
+                            <ext:ExtEntry
+                                x:Name="entrSearch"
+                                Grid.Column="1"
+                                Placeholder="Search"
+                                Style="{StaticResource entrGray}"
+                                TextChanged="entrSearch_TextChanged" />
+                            <ImageButton
+                                x:Name="BtnClose"
+                                Grid.Column="2"
+                                Clicked="BtnClose_Clicked"
+                                Source="iconClose.png"
+                                Style="{StaticResource ImgBtnH40P13}" />
+
+                            <BoxView Grid.ColumnSpan="3" Style="{StaticResource boxHorizontalGreen}" />
+                        </Grid>
+                    </Frame>
+
+                    <Grid
+                        Grid.Row="1"
+                        ColumnSpacing="10"
+                        HorizontalOptions="EndAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Frame
+                            x:Name="FrmSortBy"
+                            Grid.Column="0"
+                            Style="{StaticResource frmGrayBorder}">
+                            <Grid
+                                Margin="5"
+                                ColumnDefinitions="Auto,*"
+                                ColumnSpacing="0">
+                                <Image
+                                    x:Name="ImgSort"
+                                    Grid.Column="0"
+                                    Source="iconSortDSC.png"
+                                    Style="{StaticResource imgSorting}" />
+                                <Label
+                                    Grid.Column="1"
+                                    Margin="0,5,0,0"
+                                    FontSize="12"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Style="{StaticResource lblLight}"
+                                    Text="Sort by" />
+                            </Grid>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="FrmSortBy_Tapped" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame
+                            x:Name="FrmFilterBy"
+                            Grid.Column="1"
+                            Style="{StaticResource frmGrayBorder}">
+                            <Grid
+                                Margin="5"
+                                ColumnDefinitions="Auto,*"
+                                ColumnSpacing="0">
+                                <Image
+                                    Grid.Column="0"
+                                    Source="iconFilter.png"
+                                    Style="{StaticResource imgSorting}" />
+
+                                <Label
+                                    x:Name="lblFilterBy"
+                                    Grid.Column="1"
+                                    Margin="0,5,0,0"
+                                    FontSize="12"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Style="{StaticResource lblLight}"
+                                    Text="Filter by" />
+                            </Grid>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="FrmFilterBy_Tapped" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </Grid>
+                </Grid>
+
+                <ListView
+                    x:Name="lstRequirements"
+                    Grid.Row="2"
+                    Margin="0,5"
+                    IsPullToRefreshEnabled="True"
+                    ItemAppearing="lstRequirements_ItemAppearing"
+                    ItemTapped="lstRequirements_ItemTapped"
+                    Refreshing="lstRequirements_Refreshing"
+                    Style="{StaticResource lstPrimary}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid RowSpacing="0">
+                                    <Grid
+                                        Padding="15"
+                                        BackgroundColor="{Binding GridBg, Mode=TwoWay}"
+                                        RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <!--  Visible Grid  -->
+                                        <Grid Grid.Row="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <Grid Grid.Row="0" ColumnDefinitions="*,Auto">
+                                                <Grid Grid.Column="0" RowDefinitions="Auto,Auto">
+                                                    <StackLayout Grid.Row="0" Orientation="Horizontal">
+                                                        <Label
+                                                            FontSize="{StaticResource Font15}"
+                                                            HorizontalOptions="StartAndExpand"
+                                                            Style="{StaticResource lblMedium}"
+                                                            Text="{Binding RequirementNo}" />
+
+                                                        <Label
+                                                            FontSize="{StaticResource Font15}"
+                                                            HorizontalOptions="EndAndExpand"
+                                                            Style="{StaticResource lblMedium}"
+                                                            Text="{Binding TotalPriceEstimation, StringFormat='RS {0:}'}"
+                                                            TextColor="{StaticResource appColor1}" />
+                                                    </StackLayout>
+
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        FontSize="{Binding NameFont, Mode=TwoWay}"
+                                                        HorizontalOptions="StartAndExpand"
+                                                        Style="{StaticResource lblLight}"
+                                                        Text="{Binding Title}" />
+                                                </Grid>
+
+                                                <!--  Arrow  -->
+                                                <ImageButton
+                                                    Grid.Column="1"
+                                                    Margin="0"
+                                                    Padding="15"
+                                                    Aspect="AspectFit"
+                                                    BackgroundColor="Transparent"
+                                                    Clicked="ImgExpand_Tapped"
+                                                    HeightRequest="50"
+                                                    HorizontalOptions="End"
+                                                    Source="{Binding ArrowImage, Mode=TwoWay}"
+                                                    VerticalOptions="EndAndExpand"
+                                                    WidthRequest="50" />
+                                            </Grid>
+
+                                            <Grid
+                                                Grid.Row="1"
+                                                Margin="0"
+                                                ColumnDefinitions="*,Auto,80"
+                                                HorizontalOptions="FillAndExpand"
+                                                IsVisible="{Binding HideDetail, Mode=TwoWay}"
+                                                VerticalOptions="CenterAndExpand">
+
+                                                <Label
+                                                    Grid.Column="0"
+                                                    FontSize="{Binding NameFont, Mode=TwoWay}"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    Style="{StaticResource lblLight}"
+                                                    Text="{Binding CreatedDate, StringFormat='{0:dd/MM/yyyy}'}" />
+
+                                                <Image
+                                                    x:Name="ImgDelete"
+                                                    Grid.Column="1"
+                                                    Margin="0,0,0,0"
+                                                    Aspect="AspectFit"
+                                                    HeightRequest="25"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    Source="iconDelete.png"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    WidthRequest="25">
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImgDelete_Tapped" />
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+                                            </Grid>
+
+                                            <Label
+                                                Grid.Row="1"
+                                                FontSize="{Binding NameFont, Mode=TwoWay}"
+                                                HorizontalOptions="StartAndExpand"
+                                                IsVisible="{Binding MoreDetail, Mode=TwoWay}"
+                                                Style="{StaticResource lblMedium}"
+                                                Text="{Binding Category}" />
+
+                                        </Grid>
+
+                                        <!--  Hide Grid  -->
+                                        <Grid
+                                            Grid.Row="1"
+                                            IsVisible="{Binding MoreDetail, Mode=TwoWay}"
+                                            RowSpacing="10">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <Label
+                                                Grid.Row="0"
+                                                HorizontalOptions="StartAndExpand"
+                                                Style="{StaticResource lblLight}"
+                                                Text="{Binding ProductDescription}" />
+
+                                            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                                <Label
+                                                    Margin="0"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    Style="{StaticResource lblLight}"
+                                                    Text="{Binding CreatedDate, StringFormat='{0:dd/MM/yyyy}'}" />
+
+                                                <Label
+                                                    Margin="0"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    Style="{StaticResource lblLight}"
+                                                    Text="{Binding Quotes, Converter={converter:IntToTotalQuotes}}" />
+
+                                            </StackLayout>
+
+                                            <Frame
+                                                x:Name="FrmDelete"
+                                                Grid.Row="2"
+                                                Margin="0"
+                                                Padding="0"
+                                                BorderColor="{StaticResource appColor1}"
+                                                CornerRadius="20"
+                                                HasShadow="False"
+                                                HeightRequest="40"
+                                                HorizontalOptions="EndAndExpand"
+                                                WidthRequest="40">
+                                                <Image
+                                                    Margin="0"
+                                                    Aspect="AspectFit"
+                                                    HeightRequest="25"
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    Source="iconDelete.png"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    WidthRequest="25" />
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="FrmDelete_Tapped" />
+                                                </Frame.GestureRecognizers>
+                                            </Frame>
+                                        </Grid>
+                                    </Grid>
+
+                                    <BoxView Style="{StaticResource boxHorizontalGreen}" />
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="GrdViewRequirement_Tapped" />
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Label
+                    x:Name="lblNoRecord"
+                    Grid.Row="2"
+                    FontSize="{StaticResource Font15}"
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="false"
+                    Style="{StaticResource lblMedium}"
+                    Text="No requirements found" />
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
